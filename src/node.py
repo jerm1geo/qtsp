@@ -9,7 +9,7 @@ class Node:
         self.lon = lon
 
     def __str__(self):
-        return "%s %s %s %f %f" % \
+        return "%d %s %s %f %f" % \
             (self.id, self.person, self.location, self.lat, self.lon)
 
     def compute_distance(self, to_node):
