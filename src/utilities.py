@@ -42,6 +42,14 @@ def route_length(G, route):
     
     return length
 
+def max_edge_weight(G):
+    max = 0
+    for u, v, weight in G.edges.data("weight"):
+        if weight is not None and weight > max:
+            max = weight
+
+    return max
+
 def calculate_cost(cost_matrix, solution):
     cost = 0
     for i in range(len(solution)):

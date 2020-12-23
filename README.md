@@ -27,8 +27,6 @@ Where \<version> takes one of three values:
 
 - classic: runs a classic, exhaustive search TSP algorithm to find the best route.
 - hybrid: uses the D-Wave NetworkX library implementation of TSP and runs it using the Leap Hybrid sampler.
-- quantum: uses an [implementation](https://github.com/BOHRTECHNOLOGY/quantum_tsp) provided by BOHR Technology that constructs a QUBO and runs it directly against a D-Wave QPU.
+- quantum: uses a modified version of the D-Wave NetworkX library implementation of TSP that makes the Lagrange parameter more explicit and estimates a "weight factor" to improve the accuracy of the algorithm. The Lagrange parameter is the "A" value and the "weight factor" is the "B" value in the TSP formula give in [this paper](https://arxiv.org/pdf/1302.5843.pdf). This runs on the Leap Hybrid sampler.
 
 The program is currently hard-coded to use `data/test-data.csv` as the input file. You can update or replace this file to use your data or update main.py to use a different input file.
-
-One word of caution when running the 'quantum' version of the program: The test data file contains 10 data points, which is pushing the limit for this embedding, so it is slow. It is on my to-do list to debug and fix this so it can handle more nodes.
